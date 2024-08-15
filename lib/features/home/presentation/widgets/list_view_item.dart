@@ -1,7 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'dart:developer';
 
-import 'package:calculation/presentation/pages/production_page.dart';
+import 'package:calculation/features/production/presentation/pages/production_page.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class ListViewItem extends StatelessWidget {
         )
       ]),
       key: Key(index.toString()),
-      startActionPane: ActionPane(motion:const StretchMotion(), children: [
+      startActionPane: ActionPane(motion: const StretchMotion(), children: [
         SlidableAction(
           label: "إنتاج",
           icon: Icons.add,

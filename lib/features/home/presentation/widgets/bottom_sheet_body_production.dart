@@ -1,12 +1,10 @@
-import 'package:calculation/presentation/widgets/custom_botton.dart';
-import 'package:calculation/presentation/widgets/custom_text_field.dart';
+import 'package:calculation/core/widgets/custom_botton.dart';
+import 'package:calculation/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class BottomSheetBody extends StatelessWidget {
-  const BottomSheetBody({
-    super.key,
-  });
+class BottomSheetBodyProduction extends StatelessWidget {
+  const BottomSheetBodyProduction({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class BottomSheetBody extends StatelessWidget {
     return Form(
       autovalidateMode: autovalidateMode,
       child: SizedBox(
-        height: 450.h,
+        height: 500.h,
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: EdgeInsets.only(top: 10.h),
@@ -24,7 +22,7 @@ class BottomSheetBody extends StatelessWidget {
               SizedBox(
                 width: 360.w,
                 child: const CustomTextField(
-                  hint: "اسم الصنف",
+                  hint: "كمية الإنتاج",
                 ),
               ),
               SizedBox(
@@ -34,7 +32,25 @@ class BottomSheetBody extends StatelessWidget {
                 width: 360.w,
                 child: const CustomTextField(
                   keyboardType: TextInputType.number,
-                  hint: "الكمية",
+                  hint: "التاريخ",
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                width: 360.w,
+                child: const CustomTextField(
+                  hint: "الوزن",
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                width: 360.w,
+                child: const CustomTextField(
+                  hint: "الملاحظات",
                 ),
               ),
               SizedBox(

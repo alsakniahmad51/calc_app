@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "819323324841",
+    "project_id": "calculation-a8532",
+    "storage_bucket": "calculation-a8532.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819323324841:android:c86f9b04d72e628dc4dcb8",
+        "android_client_info": {
+          "package_name": "com.example.calculation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAB5jmC2gimCxRe2n4fvAgEHEIPNOUoI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

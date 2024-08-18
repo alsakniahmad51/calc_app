@@ -15,7 +15,7 @@ class ShowBottomSheet {
             child: DraggableScrollableSheet(
               expand: false,
               initialChildSize: initSize,
-              maxChildSize: 0.9,
+              maxChildSize: 1.0,
               minChildSize: 0.32,
               builder: (context, scrollController) {
                 return SingleChildScrollView(

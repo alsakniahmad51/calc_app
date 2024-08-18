@@ -25,7 +25,7 @@ class CustomBotton extends StatelessWidget {
                   ),
                 )
               : const Text(
-                  'Add',
+                  'إضافة',
                   style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,

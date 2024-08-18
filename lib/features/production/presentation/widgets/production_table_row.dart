@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:calculation/features/production/presentation/pages/production_page.dart';
 import 'package:flutter/material.dart';
 
 import 'production_table_sell.dart';

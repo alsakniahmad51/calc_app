@@ -1,12 +1,11 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:calculation/core/functions/show_bottom_sheet.dart';
-import 'package:calculation/features/production/presentation/widgets/bottom_sheet_body_production.dart';
+import 'package:calculation/features/sales/presentation/widgets/bottom_sheet_sales_body.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/production_body.dart';
+import 'build_customer_list_tile.dart';
 
-class ProductionPage extends StatelessWidget {
-  const ProductionPage({super.key});
+class SalesBody extends StatelessWidget {
+  const SalesBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +25,22 @@ class ProductionPage extends StatelessWidget {
           child: const Icon(Icons.add),
           onPressed: () {
             ShowBottomSheet.showBottomSheet(context,
-                child: const BottomSheetBodyProduction(), initSize: 0.6);
+                child: const BottomSheetBodySales(), initSize: 0.6);
           }),
-      body: const SafeArea(child: ProductionBody()),
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            return buildCustomerListTile(
+                name: 'John Doe',
+                quantity: 5,
+                invoiceNumber: '123456',
+                saleDate: DateTime(2024, 5, 3),
+                notes: '');
+          },
+          padding: const EdgeInsets.all(16.0),
+        ),
+      ),
     );
   }
 }

@@ -13,7 +13,7 @@ class BottomSheetBodyProduction extends StatelessWidget {
     return Form(
       autovalidateMode: autovalidateMode,
       child: SizedBox(
-        height: 500.h,
+        height: 700.h,
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: EdgeInsets.only(top: 10.h),

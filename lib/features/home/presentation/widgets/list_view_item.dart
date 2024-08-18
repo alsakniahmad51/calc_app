@@ -1,9 +1,11 @@
 // ignore: depend_on_referenced_packages
-import 'dart:developer';
 
-import 'package:calculation/features/production/presentation/pages/production_page.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter/material.dart';
+
+import 'delete_action_pane.dart';
+import 'production_pane.dart';
+import 'sales_action_pane.dart';
 
 class ListViewItem extends StatelessWidget {
   const ListViewItem({
@@ -14,38 +16,12 @@ class ListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-      endActionPane: ActionPane(motion: const StretchMotion(), children: [
-        SlidableAction(
-          label: "حذف الصنف",
-          icon: Icons.delete_forever,
-          backgroundColor: Colors.red,
-          onPressed: (context) {
-            log("حذف");
-          },
-        )
-      ]),
+      endActionPane: const ActionPane(
+          motion: StretchMotion(), children: [DeleteActionPane()]),
       key: Key(index.toString()),
-      startActionPane: ActionPane(motion: const StretchMotion(), children: [
-        SlidableAction(
-          label: "إنتاج",
-          icon: Icons.add,
-          backgroundColor: Colors.blue,
-          onPressed: (context) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const ProductionPage(),
-            ));
-            log("انتاج");
-          },
-        ),
-        SlidableAction(
-          label: "بيع",
-          icon: Icons.arrow_downward_outlined,
-          backgroundColor: Colors.green,
-          onPressed: (context) {
-            log("بيع");
-          },
-        )
-      ]),
+      startActionPane: const ActionPane(
+          motion: StretchMotion(),
+          children: [ProductionPane(), SalesActionPane()]),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Container(

@@ -10,15 +10,16 @@ import 'sales_action_pane.dart';
 class ListViewItem extends StatelessWidget {
   const ListViewItem({
     super.key,
-    required this.index,
+    required this.count,
+    required this.productName,
   });
-  final int index;
+  final double count;
+  final String productName;
   @override
   Widget build(BuildContext context) {
     return Slidable(
       endActionPane: const ActionPane(
           motion: StretchMotion(), children: [DeleteActionPane()]),
-      key: Key(index.toString()),
       startActionPane: const ActionPane(
           motion: StretchMotion(),
           children: [ProductionPane(), SalesActionPane()]),
@@ -35,11 +36,11 @@ class ListViewItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "30",
+                  "$count",
                   style: textStyle(),
                 ),
                 Text(
-                  "حقيبة دبدوب",
+                  productName,
                   style: textStyle(),
                 )
               ],

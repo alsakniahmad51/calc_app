@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:calculation/features/home/presentation/widgets/list_view_item.dart';
 import 'package:calculation/features/home/presentation/widgets/search_text_field.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -14,17 +16,35 @@ class HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 20.h, top: 75.h),
-          child: const SearchTextField(),
+        SizedBox(
+          height: 20.h,
         ),
+        const SafeArea(
+            child: Padding(
+          padding: EdgeInsets.only(top: 10),
+          child: SearchTextField(),
+        )),
+        SizedBox(height: 20.h),
         Expanded(
-          child: FirebaseAnimatedList(
-            query: query,
-            itemBuilder: (context, snapshot, animation, index) {
-              Map myData = snapshot.value as Map;
-              return ListViewItem(
-                  count: myData[index], productName: "productName");
+          child: FutureBuilder(
+            future: query.get(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return FirebaseAnimatedList(
+                  query: query,
+                  itemBuilder: (BuildContext context, DataSnapshot snapshot,
+                      Animation<double> animation, int index) {
+                    Map mydata = snapshot.value as Map;
+                    return ListViewItem(
+                        categoryName: snapshot.key!,
+                        quantity: mydata['production']['count'] -
+                            mydata['sales']['sales']);
+                  },
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             },
           ),
         ),
